@@ -2,6 +2,11 @@
  * # ![AWS](aws-logo.png) Security Group
  *
  * Purpose: Blueprints for AWS Security Groups.
+ *
+ * ![AWS Security Group](aws_security_group.png)
+ *
+ * <div>Icons made by <a href="https://www.flaticon.com/authors/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+ * <div>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
  */
 data "aws_vpc" "vpc" {
   filter {
