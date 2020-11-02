@@ -3,7 +3,8 @@ module "securitygroup" {
 
   name          = var.name
   description   = var.description
-  vpc           = var.vpc
+  vpc_default           = var.vpc_default
+  vpc_tags = var.vpc_tags
   ingress_rules = ["ssh-22-tcp"]
   egress_rules  = var.egress_rules
 }

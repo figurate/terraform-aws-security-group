@@ -8,11 +8,9 @@
  * <div>Icons made by <a href="https://www.flaticon.com/authors/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
  * <div>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
  */
-data "aws_vpc" "vpc" {
-  filter {
-    name   = "tag:Name"
-    values = [var.vpc]
-  }
+data "aws_vpc" "tenant" {
+  default = var.vpc_default
+  tags    = var.vpc_tags
 }
 
 resource "aws_security_group" "securitygroup" {
@@ -20,7 +18,7 @@ resource "aws_security_group" "securitygroup" {
   tags = {
     Name = var.name
   }
-  vpc_id = data.aws_vpc.vpc.id
+  vpc_id = data.aws_vpc.tenant.id
 
   dynamic "ingress" {
     for_each = var.ingress_rules
@@ -29,7 +27,7 @@ resource "aws_security_group" "securitygroup" {
       to_port     = local.rules[ingress.value][1]
       protocol    = local.rules[ingress.value][2]
       description = local.rules[ingress.value][3]
-      cidr_blocks = [data.aws_vpc.vpc.cidr_block]
+      cidr_blocks = [data.aws_vpc.tenant.cidr_block]
     }
   }
 

@@ -13,7 +13,8 @@ No provider.
 | description | An optional description for the security group | `any` | `null` | no |
 | egress\_rules | A list of predefined rules for egress traffic | `list(string)` | <pre>[<br>  "all-tcp",<br>  "all-udp"<br>]</pre> | no |
 | name | Name of the firewall configuration | `any` | n/a | yes |
-| vpc | Name of the VPC to deploy to | `any` | n/a | yes |
+| vpc\_default | Use the default VPC | `bool` | `true` | no |
+| vpc\_tags | Lookup tags to identify VPC | `map(any)` | `{}` | no |
 
 ## Outputs
 

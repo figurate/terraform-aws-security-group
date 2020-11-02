@@ -7,8 +7,15 @@ variable "description" {
   default     = null
 }
 
-variable "vpc" {
-  description = "Name of the VPC to deploy to"
+variable "vpc_default" {
+  description = "Use the default VPC"
+  default     = true
+}
+
+variable "vpc_tags" {
+  type        = map(any)
+  description = "Lookup tags to identify VPC"
+  default     = {}
 }
 
 variable "egress_rules" {

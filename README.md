@@ -25,7 +25,8 @@ No requirements.
 | egress\_rules | A list of egress rule identifiers | `list(string)` | `[]` | no |
 | ingress\_rules | A list of ingress rule identifiers | `list(string)` | `[]` | no |
 | name | Security group name | `any` | n/a | yes |
-| vpc | Name of the VPC to deploy to | `any` | n/a | yes |
+| vpc\_default | Use the default VPC | `bool` | `true` | no |
+| vpc\_tags | Lookup tags to identify VPC | `map(any)` | `{}` | no |
 
 ## Outputs
 
