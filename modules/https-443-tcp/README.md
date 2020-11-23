@@ -21,4 +21,5 @@ No provider.
 | Name | Description |
 |------|-------------|
 | security\_group\_id | n/a |
+| security\_group\_name | n/a |
 
