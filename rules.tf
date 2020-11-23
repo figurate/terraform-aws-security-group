@@ -1,7 +1,6 @@
 locals {
   rules = {
-    all-tcp = [0, 0, "tcp", "ALL (TCP)"]
-    all-udp = [0, 0, "udp", "ALL (UDP)"]
+    allow-all = [0, 0, "-1", "ALL"]
 
     http-80-tcp   = [80, 80, "tcp", "HTTP"]
     http-8080-tcp = [8080, 8080, "tcp", "HTTP"]
