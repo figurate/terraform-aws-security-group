@@ -21,5 +21,5 @@ variable "vpc_tags" {
 variable "egress_rules" {
   description = "A list of predefined rules for egress traffic"
   type        = list(string)
-  default     = ["all-tcp", "all-udp"]
+  default     = ["allow-all"]
 }
