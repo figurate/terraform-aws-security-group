@@ -1,5 +1,7 @@
 # ![AWS](aws-logo.png) Security Group
 
+[![CI](https://github.com/figurate/terraform-aws-security-group/actions/workflows/main.yml/badge.svg)](https://github.com/figurate/terraform-aws-security-group/actions/workflows/main.yml)
+
 Purpose: Blueprints for AWS Security Groups.
 
 ![AWS Security Group](aws\_security\_group.png)
