@@ -11,9 +11,7 @@ clean:
 	rm -rf .terraform/
 
 validate:
-	$(TERRAFORM) init -upgrade && $(TERRAFORM) validate && \
-		$(TERRAFORM) -chdir=modules/https-443-tcp init -upgrade && $(TERRAFORM) -chdir=modules/https-443-tcp validate && \
-		$(TERRAFORM) -chdir=modules/ssh-22-tcp init -upgrade && $(TERRAFORM) -chdir=modules/ssh-22-tcp validate
+	$(TERRAFORM) init  && $(TERRAFORM) validate
 
 test: validate
 	$(CHECKOV) -d /work
@@ -28,9 +26,7 @@ docs: diagram
 		$(TERRAFORM_DOCS) markdown ./modules/ssh-22-tcp >./modules/ssh-22-tcp/README.md
 
 format:
-	$(TERRAFORM) fmt -list=true ./ && \
-		$(TERRAFORM) fmt -list=true ./modules/https-443-tcp && \
-		$(TERRAFORM) fmt -list=true ./modules/ssh-22-tcp
+	$(TERRAFORM) fmt -list=true -recursive
 
 release: test
 	git tag $(VERSION) && git push --tags
